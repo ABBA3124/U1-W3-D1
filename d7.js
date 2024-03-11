@@ -78,7 +78,7 @@ console.log("Somma dei numeri contenuti nell'array:", result3)
 */
 const n = 3
 const incrementoArray = (number3, n) => {
-  return number3.map(number3 => number3 + n)
+  return number3.map((number3) => number3 + n)
 }
 const incrementato = incrementoArray(arrayDiNumeri, n)
 
@@ -89,29 +89,28 @@ console.log("array incrementato n", incrementato)
   Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
   es.: ["EPICODE", "is", "great"] => [7, 2, 5]
   */
- const arrayDiStringhe =["EPICODE", "is", "great"]
- const lunghezzaStringhe = (arrayDiStringhe) => {
-   return arrayDiStringhe.map(stringa => stringa.length)
-  }
-  const lunghezze = lunghezzaStringhe(arrayDiStringhe)
-  
-  console.log("array di stringhe", arrayDiStringhe)
-  console.log("lunghezza stringhe", lunghezze)
-  
+const arrayDiStringhe = ["EPICODE", "is", "great"]
+const lunghezzaStringhe = (arrayDiStringhe) => {
+  return arrayDiStringhe.map((stringa) => stringa.length)
+}
+const lunghezze = lunghezzaStringhe(arrayDiStringhe)
+
+console.log("array di stringhe", arrayDiStringhe)
+console.log("lunghezza stringhe", lunghezze)
 
 /* ESERCIZIO 8 (forEach o for)
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
   */
-  const valoriDispari = function() {
-    const arrayDispari = []
-    for (let i = 1; i <= 99; i += 2) {
-      arrayDispari.push(i)
-    } return arrayDispari
+const valoriDispari = function () {
+  const arrayDispari = []
+  for (let i = 1; i <= 99; i += 2) {
+    arrayDispari.push(i)
   }
-  const arrayDispari = valoriDispari()
-  
-  console.log("Array contenente valori dispari da 1 a 99:", arrayDispari)
-  
+  return arrayDispari
+}
+const arrayDispari = valoriDispari()
+
+console.log("Array contenente valori dispari da 1 a 99:", arrayDispari)
 
 /* Questo array di film verrà usato negli esercizi a seguire. Non modificarlo e scorri oltre per riprendere gli esercizi :) */
 const movies = [
@@ -232,21 +231,31 @@ const movies = [
 /* ESERCIZIO 9 (forEach)
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
-const trovaFilmPiuVecchio = (arraydifilm) => {
-  
-}
+const trovaFilmPiuVecchio = (arraydifilm) => {}
 
 /* ESERCIZIO 10
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
+const numeroDiFilm = (arrayDiFilm) => {
+  return arrayDiFilm.length
+}
+const quantitaFilm = numeroDiFilm(movies)
+console.log("numero di film contenuti", quantitaFilm)
 
 /* ESERCIZIO 11 (map)
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
 */
+const ottieniTitoliFilm = (arrayDiFilm) => {
+  return arrayDiFilm.map((film) => film.Title)
+}
+const titoliDeiFilm = ottieniTitoliFilm(movies)
+
+console.log("Array con solamente i titoli dei film:", titoliDeiFilm)
 
 /* ESERCIZIO 12 (filter)
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
+
 
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
