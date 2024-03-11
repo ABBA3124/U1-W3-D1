@@ -255,16 +255,47 @@ console.log("Array con solamente i titoli dei film:", titoliDeiFilm)
 /* ESERCIZIO 12 (filter)
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
+const filmDelMillennioCorrente = (arrayDiFilm) =>
+  arrayDiFilm.filter(
+    (film) =>
+      parseInt(film.Year, 10) >= 2000 &&
+      parseInt(film.Year, 10) < new Date().getFullYear() + 1000
+  )
+const filmMillennioCorrente = filmDelMillennioCorrente(movies)
 
+console.log("Film usciti nel millennio corrente:", filmMillennioCorrente)
 
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
+const sommaAnniProduzione = (arrayDiFilm) => {
+  return arrayDiFilm.reduce((somma, film) => somma + parseInt(film.Year, 10), 0)
+}
+const risultatoSommaAnni = sommaAnniProduzione(movies)
+
+console.log("Somma degli anni di produzione dei film:", risultatoSommaAnni)
 
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
+const trovaFilmPerImdbID = (arrayDiFilm, imdbID) => 
+  arrayDiFilm.find((film) => film.imdbID === imdbID)
+const imdbIDCercato = "tt0848228" 
+const filmTrovato = trovaFilmPerImdbID(movies, imdbIDCercato)
+if (filmTrovato) 
+  console.log("Film trovato:", filmTrovato)
+else 
+  console.log("Nessun film trovato con l'imdbID:", imdbIDCercato)
+
 
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
 */
+const trovaIndicePrimoFilmPerAnno = (arrayDiFilm, annoCercato) => {
+  const indiceFilm = arrayDiFilm.findIndex((film) => parseInt(film.Year, 10) === annoCercato)
+  return indiceFilm !== -1 ? indiceFilm : "Nessun film trovato per l'anno fornito"
+}
+const annoCercato = 2002;
+const indicePrimoFilm = trovaIndicePrimoFilmPerAnno(movies, annoCercato)
+
+console.log("Indice del primo film uscito nell'anno fornito:", indicePrimoFilm)
